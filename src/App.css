@@ -189,8 +189,94 @@ body {
 
 /* #endregion */
 
+/* #region loader */
+.loader {
+  width: 80px;
+  aspect-ratio: 1;
+  border: 10px solid #000;
+  box-sizing: border-box;
+  background:
+    radial-gradient(farthest-side, #fff 98%, #0000) top,
+    radial-gradient(farthest-side, #fff 98%, #0000) top,
+    radial-gradient(farthest-side, #fff 98%, #0000) left,
+    radial-gradient(farthest-side, #fff 98%, #0000) right,
+    radial-gradient(farthest-side, #fff 98%, #0000) bottom,
+    #000;
+  background-size: 20px 20px;
+  background-repeat: no-repeat;
+  filter: blur(4px) contrast(10);
+  animation: l19 2s infinite;
+}
+@keyframes l19 {
+  0% {
+    background-position: top, top, left, right, bottom
+  }
 
+  25% {
+    background-position: right, top, left, right, bottom
+  }
 
+  50% {
+    background-position: bottom, top, left, right, bottom
+  }
+
+  75% {
+    background-position: left, top, left, right, bottom
+  }
+
+  100% {
+    background-position: top, top, left, right, bottom
+  }
+}
+
+/* HTML: <div class="loader"></div> */
+.notfound {
+  width: max-content;
+  padding: 0.5em 1em;
+  line-height: 1.4;
+  font-weight: bold;
+  background: 
+    linear-gradient(var(--scuro-2)) left ,
+    linear-gradient(var(--scuro-2)) right;
+  background-repeat: no-repeat; 
+  border-right: 5px solid #0000;
+  border-left: 5px solid #0000;
+  background-origin: border-box;
+  position: relative;
+  animation: l9-0 2s infinite;
+}
+.notfound::before {
+  
+  content:"No Games";
+}
+.notfound::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 22px;
+  height: 60px;
+  background: 
+   linear-gradient(90deg,var(--scuro-2) 4px,#0000 0 calc(100% - 4px),var(--scuro-2) ) bottom /22px 20px,
+   linear-gradient(90deg,red  4px,#0000 0 calc(100% - 4px),red  0) bottom 22px left 0/22px 20px,
+   linear-gradient(var(--scuro-2)) bottom 3px left 0  /22px 8px,
+   linear-gradient(var(--scuro-2)) bottom 0   left 50%/8px  18px;
+ background-repeat: no-repeat;
+ animation: l9-1 2s infinite;
+}
+@keyframes l9-0{
+  0%,25%    {background-size: 50% 100%}
+  25.1%,75% {background-size: 0 0,50% 100%}
+  75.1%,100%{background-size: 0 0,0 0}
+}
+@keyframes l9-1{
+  25%   { background-position:bottom, bottom 60px left 0,bottom 3px left 0,bottom 0 left 50%;left:0}
+  25.1% { background-position:bottom, bottom 15px left 0,bottom 3px left 0,bottom 0 left 50%;left:0}
+  50%   { background-position:bottom, bottom 20px left 0,bottom 3px left 0,bottom 0 left 50%;left:calc(100% - 22px)}
+  75%   { background-position:bottom, bottom 54px left 0,bottom 3px left 0,bottom 0 left 50%;left:calc(100% - 22px)}
+  75.1% { background-position:bottom, bottom 10px left 0,bottom 3px left 0,bottom 0 left 50%;left:calc(100% - 22px)}
+}
+/* #endregion */
 
 
 
