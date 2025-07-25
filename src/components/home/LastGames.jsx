@@ -26,7 +26,7 @@ export default function LastGames() {
                     <div className="grid lg:grid-cols-4 md:grid-cols-3 xl:grid-cols-4 grid-cols-1 gap-6 ">
                         {lastGames && lastGames.results ? (
                             lastGames.results.map((game) => (
-                                <CardGames key={game.id} title={game.name} image={game.background_image} genre={game.genres[0]?.name || ""} released={game.released} />
+                                <CardGames key={game.id} id={game.id} title={game.name} image={game.background_image} genre={game.genres[0]?.name || ""} released={game.released} />
                             ))
                         ) : (
                             <div className="col-span-full text-center text-bianco py-10">Caricamento giochi...</div>

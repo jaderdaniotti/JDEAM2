@@ -55,7 +55,7 @@ export default function FilterGames() {
                             </li>
                         ))
                     ) : (
-                        <Loader />
+                        ""
                     )}
                 </ul>
             </div>

@@ -190,46 +190,43 @@ body {
 /* #endregion */
 
 /* #region loader */
-.loader {
-  width: 80px;
-  aspect-ratio: 1;
-  border: 10px solid #000;
-  box-sizing: border-box;
-  background:
-    radial-gradient(farthest-side, #fff 98%, #0000) top,
-    radial-gradient(farthest-side, #fff 98%, #0000) top,
-    radial-gradient(farthest-side, #fff 98%, #0000) left,
-    radial-gradient(farthest-side, #fff 98%, #0000) right,
-    radial-gradient(farthest-side, #fff 98%, #0000) bottom,
-    #000;
-  background-size: 20px 20px;
-  background-repeat: no-repeat;
-  filter: blur(4px) contrast(10);
-  animation: l19 2s infinite;
-}
-@keyframes l19 {
-  0% {
-    background-position: top, top, left, right, bottom
-  }
-
-  25% {
-    background-position: right, top, left, right, bottom
-  }
-
-  50% {
-    background-position: bottom, top, left, right, bottom
-  }
-
-  75% {
-    background-position: left, top, left, right, bottom
-  }
-
-  100% {
-    background-position: top, top, left, right, bottom
-  }
-}
-
 /* HTML: <div class="loader"></div> */
+.loader {
+  height: 15rem;
+  aspect-ratio: 1;
+  position: relative;
+}
+.loader::before,
+.loader::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  transform-origin: bottom;
+}
+.loader::after {
+  background:
+    radial-gradient(at 75% 15%,#fffb,#0000 35%),
+    radial-gradient(at 80% 40%,#0000,#0008),
+    radial-gradient(circle  1rem,#fff 94%,#0000),
+    radial-gradient(circle 2rem,#000 94%,#0000),
+    linear-gradient(#F93318 0 0) top   /100% calc(50% - 1rem),
+    linear-gradient(#fff    0 0) bottom/100% calc(50% - 1rem)
+    #000;
+  background-repeat: no-repeat;
+  animation: l20 1s infinite cubic-bezier(0.5,120,0.5,-120);
+}
+.loader::before {
+  background:#ddd;
+  filter: blur(8px);
+  transform: scaleY(0.4) translate(-13px, 0px);
+}
+@keyframes l20 { 
+ 30%,70% {transform:rotate(0deg)}
+ 49.99%  {transform:rotate(0.2deg)}
+ 50%     {transform:rotate(-0.2deg)}
+}
+
 .notfound {
   width: max-content;
   padding: 0.5em 1em;
