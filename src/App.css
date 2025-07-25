@@ -1,0 +1,204 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Manrope:wght@200..800&display=swap');
+@import "tailwindcss";
+@import 'bootstrap-icons';
+@plugin "daisyui";
+
+
+:root {
+  --scuro: #141414;
+  --scuro-2: #1B1B1B;
+  --chiaro-2: #E1E1E1;
+  --chiaro: #F3F3F3;
+  /* Rosso corallo/cartoon per evidenziare o CTA */
+  --bianco: #FDFDFD;
+  /* Bianco puro per testi su sfondi scuri */
+
+}
+
+@theme {
+  --scuro: var(--scuro);
+  --scuro-2: var(--scuro-2);
+  --chiaro-2: var(--chiaro-2);
+  --chiaro: var(--chiaro);
+  --bianco: var(--bianco);
+}
+
+
+body {
+  background: var(--chiaro);
+  /* background-image: url(//immagini/sfondo.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed; */
+  color: var(--scuro);
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+  letter-spacing: -0.025em;
+  min-height: 100vh;
+  /* -0.025em */
+
+  overflow-y: auto;
+}
+
+/* #region colori */
+.bg-scuro {
+  background-color: var(--scuro);
+}
+
+.bg-scuro-2 {
+  background-color: var(--scuro-2);
+}
+
+.bg-chiaro {
+  background-color: var(--chiaro);
+}
+
+.bg-chiaro-2 {
+  background-color: var(--chiaro-2);
+}
+
+.bg-bianco {
+  background-color: var(--bianco);
+}
+
+.text-bianco {
+  color: var(--bianco);
+}
+
+.text-scuro {
+  color: var(--scuro);
+}
+
+.text-scuro-2 {
+  color: var(--scuro-2);
+}
+
+.text-chiaro {
+  color: var(--chiaro);
+}
+
+.text-chiaro-2 {
+  color: var(--chiaro-2);
+}
+
+.border-chiaro {
+  border-color: var(--chiaro);
+}
+
+.border-scuro {
+  border-color: var(--scuro);
+}
+
+.border-scuro-2 {
+  border-color: var(--scuro-2);
+}
+
+
+
+/* #endregion */
+
+/* #region font */
+
+.inter {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.montserrat {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+}
+
+/* #endregion */
+
+/* #region BUTTONS */
+
+
+.buttonUI {
+  all: unset;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 0.6em 2em;
+  border: var(--chiaro) solid 0.15em;
+  border-radius: 0.25em;
+  color: var(--chiaro);
+  font-size: 1.5em;
+  font-weight: 600;
+  cursor: pointer;
+  overflow: hidden;
+  transition: border 300ms, color 300ms;
+  user-select: none;
+  text-align: center;
+}
+
+.buttonUI p {
+  z-index: 1;
+}
+
+.buttonUI:hover {
+  color: #212121;
+}
+
+.buttonUI:active {
+  border-color: var(--chiaro);
+}
+
+.buttonUI::after,
+.buttonUI::before {
+  content: "";
+  position: absolute;
+  width: 9em;
+  aspect-ratio: 1;
+  background: var(--chiaro);
+  opacity: 50%;
+  border-radius: 50%;
+  transition: transform 500ms, background 300ms;
+}
+
+.buttonUI::before {
+  left: 0;
+  transform: translateX(-8em);
+}
+
+.buttonUI::after {
+  right: 0;
+  transform: translateX(8em);
+}
+
+.buttonUI:hover:before {
+  transform: translateX(-1em);
+}
+
+.buttonUI:hover:after {
+  transform: translateX(1em);
+}
+
+.buttonUI:active:before,
+.buttonUI:active:after {
+  background: var(--chiaro);
+}
+
+/* #endregion */
+
+
+
+
+
+
+
+
+
+
+
+html {
+  scroll-behavior: smooth;
+}
