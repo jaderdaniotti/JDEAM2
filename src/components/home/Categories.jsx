@@ -1,34 +1,23 @@
 import ButtonUI from "../buttons/ButtonUI";
 import { GiTronArrow } from "react-icons/gi";
-
+import { useState, useEffect } from "react";
+import LazyLoadGameImage from "../LazyLoadGameImage";
+import { CgGames } from "react-icons/cg";
+import { Link } from "react-router-dom";
 
 export default function Categories() {
-    const categories = [
-        {
-            name: "Action",
-            icon: "⚔️",
-        },
-        {
-            name: "Adventure",
-            icon: "🗺️",
-        },
-        {
-            name: "RPG",
-            icon: "⚡",
-        },
-        {
-            name: "Strategy",
-            icon: "🎯",
-        },
-        {
-            name: "Sports",
-            icon: "⚽",
-        },
-        {
-            name: "Puzzle",
-            icon: "🧩",
-        }
-    ];
+    const [categories, Setcategories] = useState([]);
+
+    const getCategories = async () => {
+        const promise = await fetch("https://api.rawg.io/api/genres?key=fe79071ec2d64d9a8864d79740169bfd");
+        const json = await promise.json();
+        //console.log(json);
+        Setcategories(json);
+    }
+    useEffect(() => {
+        getCategories();
+    }, []);
+
 
     return (
         <section className="py-16 bg-scuro text-chiaro">
@@ -42,26 +31,27 @@ export default function Categories() {
                     </p>
                 </div>
 
-                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
-                    {categories.map((category, index) => (
-                        <div
-                            key={index}
-                            className="group relative overflow-hidden rounded-2xl bg-scuro-2 p-6 border-2 border-transparent hover:border-chiaro transition-all duration-300 hover:scale-105 cursor-pointer "
-                        >
-                            <div className="flex flex-col items-center justify-center text-center gap-2 ">
-                                <h3 className="text-2xl font-bold text-bianco">
-                                    {category.name}
-                                </h3>
-                                <div className=" rounded-full bg-chiaro flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                                    <span className="text-scuro text-xl p-2"><GiTronArrow />
-                                    </span>
-                                </div>
+                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+                    {categories.results && categories.results.map((category) => (
+                            <div
+                            className="relative group w-full max-w-xs bg-scuro text-white rounded-3xl overflow-hidden border-1 border-chiaro  transition duration-300 hover:translate-y-[-10px]" key={category.id}>
+                      
+                            <LazyLoadGameImage image={category.image_background} />
+                      
+                            <div className="p-4 flex flex-col gap-2 ">
+                              <span className="text-xs flex items-center gap-2 bg-chiaro text-scuro font-normal self-center px-3 py-1 rounded-full shadow-sm  tracking-wider truncate ">
+                                <CgGames className="w-4 h-4"/> {category.games_count}
+                              </span>
+                      
+                              <h2 className="text-lg text-center font-extrabold text-white truncate drop-shadow-sm">{category.name}</h2>
+                              <span className="text-sm text-chiaro"></span>
+                              <hr className="border-chiaro" />
+                              <Link to={`/categories/${category.id}`} className="self-center relative mt-3 text-sm mb-0 px-4 py-2 rounded-full bg-white text-[#1B1A30] font-semibold transition hover:bg-[#FF6F61] hover:text-white">
+                                Dettagli
+                              </Link>
                             </div>
-                        </div>
+                          </div>
                     ))}
-                </div>
-                <div className="text-center flex items-center justify-center mt-12">
-                    <ButtonUI text="Vedi Tutte le Categorie" />
                 </div>
             </div>
         </section>

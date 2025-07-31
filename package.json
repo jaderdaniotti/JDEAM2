@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.7.2",
+    "@supabase/supabase-js": "^2.53.0",
     "@tailwindcss/vite": "^4.1.10",
     "@tsparticles/engine": "^3.8.1",
     "aos": "^3.0.0-beta.6",
@@ -29,7 +30,8 @@
     "react-scroll": "^1.9.3",
     "swiper": "^11.2.8",
     "tailwindcss": "^4.1.10",
-    "typed.js": "^2.1.0"
+    "typed.js": "^2.1.0",
+    "zod": "^4.0.14"
   },
   "devDependencies": {
     "@eslint/js": "^9.25.0",

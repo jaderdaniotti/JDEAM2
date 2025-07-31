@@ -70,10 +70,10 @@ export default function SearchBar() {
     return (
         <>
             <form onSubmit={handleSearch} className="w-full px-5 py-3 relative">
-                <label className="input w-full">
+                <label className="input bg-scuro-2 text-chiaro w-full">
                     <input 
                         type="search" 
-                        className="grow text-chiaro" 
+                        className="grow flex text-chiaro items-center" 
                         placeholder="Cerca giochi..."
                         value={search}
                         onChange={handleInputChange}
@@ -81,7 +81,7 @@ export default function SearchBar() {
                     />
                     <button 
                         type="submit"
-                        className="btn absolute right-0 border-chiaro border-1 text-chiaro"
+                        className="btn absolute right-0  m-auto bg-scuro shadow-none border-none btn-sm text-chiaro"
                     >
                         <CiSearch />
                     </button>

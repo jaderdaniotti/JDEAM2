@@ -1,11 +1,10 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
 const Footer = () => (
   <footer className="footer footer-center p-6 flex items-center justify-between bg-scuro text-chiaro border-t-1 border-chiaro-2">
     <nav className=" flex gap-4">
-      <a href="/privacy" className="link link-hover">Privacy</a>
-      <a href="/terms" className="link link-hover">Termini</a>
-      <a href="/contact" className="link link-hover">Contatti</a>
+      <Link to="/privacy" className="link link-hover">Privacy</Link>
+      <Link to="/terms" className="link link-hover">Termini</Link>
     </nav>
     <nav className=" flex gap-4">
       <a href="#" aria-label="Instagram" className="text-xl hover:text-primary transition"><i className="bi bi-instagram"></i></a>
@@ -13,7 +12,7 @@ const Footer = () => (
       <a href="#" aria-label="GitHub" className="text-xl hover:text-primary transition"><i className="bi bi-github"></i></a>
     </nav>
     <aside>
-      <p>&copy; {new Date().getFullYear()} MyBrand. Tutti i diritti riservati.</p>
+      <p>&copy; {new Date().getFullYear()} JDeam2</p>
     </aside>
   </footer>
 );
