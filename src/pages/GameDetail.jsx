@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Loader from "../components/loader";
 import ToggleFavorite from "../components/ToggleFavorite";
+import Chatbox from "../components/chatbox";
 
 
 
@@ -173,6 +174,43 @@ export default function GameDetail() {
                 </div>
               </div>
             )}
+                        {/* Rating dettagliati */}
+                        {game.ratings && game.ratings.length > 0 && (
+              <div className="bg-bianco p-6 rounded-2xl shadow-lg">
+                <h3 className="text-xl font-bold text-scuro mb-4">Valutazioni ({game.ratings_count})</h3>
+                <div className="space-y-3">
+                  {game.ratings.map((rating) => (
+                    <div key={rating.id} className="flex items-center justify-between">
+                      <span className="text-scuro-2 capitalize">{rating.title}</span>
+                      <div className="flex items-center gap-2">
+                        <div className="w-20 bg-scuro-2 rounded-full h-2">
+                          <div 
+                            className="bg-chiaro h-2 rounded-full" 
+                            style={{ width: `${rating.percent}%` }}
+                          ></div>
+                        </div>
+                        <span className="text-sm text-scuro-2 w-12">{rating.percent}%</span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Store */}
+            {game.stores && game.stores.length > 0 && (
+              <div className="bg-bianco p-6 rounded-2xl shadow-lg">
+                <h3 className="text-xl font-bold text-scuro mb-4">Dove acquistare</h3>
+                <div className="space-y-2">
+                  {game.stores.map((store, index) => (
+                    <div key={index} className="bg-scuro-2 text-bianco px-3 py-2 rounded">
+                      {store.store.name}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+                         <Chatbox data={game} />
           </div>
 
           {/* Sidebar */}
@@ -305,42 +343,7 @@ export default function GameDetail() {
               </div>
             )}
 
-            {/* Rating dettagliati */}
-            {game.ratings && game.ratings.length > 0 && (
-              <div className="bg-bianco p-6 rounded-2xl shadow-lg">
-                <h3 className="text-xl font-bold text-scuro mb-4">Valutazioni ({game.ratings_count})</h3>
-                <div className="space-y-3">
-                  {game.ratings.map((rating) => (
-                    <div key={rating.id} className="flex items-center justify-between">
-                      <span className="text-scuro-2 capitalize">{rating.title}</span>
-                      <div className="flex items-center gap-2">
-                        <div className="w-20 bg-scuro-2 rounded-full h-2">
-                          <div 
-                            className="bg-chiaro h-2 rounded-full" 
-                            style={{ width: `${rating.percent}%` }}
-                          ></div>
-                        </div>
-                        <span className="text-sm text-scuro-2 w-12">{rating.percent}%</span>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            )}
 
-            {/* Store */}
-            {game.stores && game.stores.length > 0 && (
-              <div className="bg-bianco p-6 rounded-2xl shadow-lg">
-                <h3 className="text-xl font-bold text-scuro mb-4">Dove acquistare</h3>
-                <div className="space-y-2">
-                  {game.stores.map((store, index) => (
-                    <div key={index} className="bg-scuro-2 text-bianco px-3 py-2 rounded">
-                      {store.store.name}
-                    </div>
-                  ))}
-                </div>
-              </div>
-            )}
 
             {/* Statistiche */}
             <div className="bg-bianco p-6 rounded-2xl shadow-lg">
@@ -379,23 +382,23 @@ export default function GameDetail() {
               </div>
             </div>
 
-            {/* Status utenti */}
-            {game.added_by_status && (
-              <div className="bg-bianco p-6 rounded-2xl shadow-lg">
-                <h3 className="text-xl font-bold text-scuro mb-4">Status Utenti</h3>
-                <div className="space-y-2">
-                  {Object.entries(game.added_by_status).map(([status, count]) => (
-                    <div key={status} className="flex justify-between">
-                      <span className="text-scuro-2 capitalize">{status}</span>
-                      <span className="font-semibold text-scuro">{count.toLocaleString()}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            )}
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-} 
+                         {/* Status utenti */}
+             {game.added_by_status && (
+               <div className="bg-bianco p-6 rounded-2xl shadow-lg">
+                 <h3 className="text-xl font-bold text-scuro mb-4">Status Utenti</h3>
+                 <div className="space-y-2">
+                   {Object.entries(game.added_by_status).map(([status, count]) => (
+                     <div key={status} className="flex justify-between">
+                       <span className="text-scuro-2 capitalize">{status}</span>
+                       <span className="font-semibold text-scuro">{count.toLocaleString()}</span>
+                     </div>
+                   ))}
+                 </div>
+               </div>
+             )}
+           </div>
+         </div>
+       </div>
+     </section>
+   );
+ } 

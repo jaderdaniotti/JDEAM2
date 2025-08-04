@@ -36,13 +36,12 @@ export default function Login() {
         console.error("Login error:", result.error);
         setFormErrors({ general: result.error.message });
       } else {
-        //console.log("Login successful:", result.data);
-        //console.log("Login completato con successo! 👍🏻");
+
         navigate("/");
       }
     } catch (err) {
       console.error("Unexpected error:", err);
-      //console.log("Errore inaspettato durante il login");
+
       setFormErrors({ general: "Errore inaspettato durante il login" });
     } finally {
       setIsLoading(false);

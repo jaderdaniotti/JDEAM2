@@ -11,9 +11,9 @@ const Navbar = () => {
   const handleLogout = async () => {
     const result = await signOut();
     if (result.error) {
-      //console.log("Errore durante il logout: " + result.error.message);
+      
     } else {
-      //console.log("Logout completato con successo! 👋");
+      
     }
   };
 

@@ -44,21 +44,20 @@ export default function Profile() {
 
   const handleLogout = async () => {
     const result = await signOut();
-    if (result.error) {
-      //console.log("Errore durante il logout: " + result.error.message);
-    } else {
-      //console.log("Logout completato con successo! 👋");
-      navigate("/");
-    }
+          if (result.error) {
+        // Handle error silently
+      } else {
+        navigate("/");
+      }
   };
 
   const handleAvatarUpload = async (event, filePath) => {
     const result = await updateAvatar(filePath);
-    if (result.error) {
-      //console.log("Errore durante l'aggiornamento dell'avatar: " + result.error.message);
-    } else {
-      //console.log("Avatar aggiornato con successo!");
-    }
+          if (result.error) {
+        // Handle error silently
+      } else {
+        // Handle success silently
+      }
   };
 
   if (loading) {
@@ -93,7 +92,7 @@ export default function Profile() {
 
   return (
     <section className="min-h-screen bg-chiaro-2 text-scuro py-8">
-      <div className="max-w-4xl mx-auto px-5">
+      <div className="max-w-6xl mx-auto px-5">
         {/* Header */}
         <div className="text-center mb-8">
           <h1 className="text-4xl font-bold mb-2">Area Personale</h1>
@@ -102,7 +101,7 @@ export default function Profile() {
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Profile Card */}
-          <div className="lg:col-span-1">
+          <div className="lg:col-span-1 gap-6 flex flex-col">
             <div className="bg-bianco rounded-2xl shadow-lg p-8">
               <div className="text-center">
                 <div className="mb-6">
@@ -135,6 +134,25 @@ export default function Profile() {
                   >
                   </ButtonNormal>
                 </div>
+              </div>
+            </div>
+            {/* Quick Actions Card */}
+            <div className="bg-bianco rounded-2xl shadow-lg p-8">
+              <h3 className="text-2xl font-bold mb-6 flex items-center">
+                <i className="bi bi-lightning text-scuro mr-3"></i>
+                Azioni Rapide
+              </h3>
+              
+              <div className="grid  gap-4">
+                <button className="p-4 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors text-left" onClick={() => navigate("/profile/edit")}>
+                  <div className="flex flex-col justify-center items-center gap-2">
+                    <i className="bi bi-gear text-2xl text-gray-500 mr-3"></i>
+                    <div>
+                      <p className="font-semibold text-center">Impostazioni</p>
+                      <p className="text-sm text-scuro-2">Configura account</p>
+                    </div>
+                  </div>
+                </button>
               </div>
             </div>
           </div>
@@ -208,25 +226,7 @@ export default function Profile() {
               </div>
             </div>
 
-            {/* Quick Actions Card */}
-            <div className="bg-bianco rounded-2xl shadow-lg p-8">
-              <h3 className="text-2xl font-bold mb-6 flex items-center">
-                <i className="bi bi-lightning text-scuro mr-3"></i>
-                Azioni Rapide
-              </h3>
-              
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                <button className="p-4 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors text-left" onClick={() => navigate("/profile/edit")}>
-                  <div className="flex flex-col justify-center items-center gap-2">
-                    <i className="bi bi-gear text-2xl text-gray-500 mr-3"></i>
-                    <div>
-                      <p className="font-semibold text-center">Impostazioni</p>
-                      <p className="text-sm text-scuro-2">Configura account</p>
-                    </div>
-                  </div>
-                </button>
-              </div>
-            </div>
+            
 
             {/* Favorites Card */}
             <div className="bg-bianco rounded-2xl shadow-lg p-8">

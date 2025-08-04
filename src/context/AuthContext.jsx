@@ -23,7 +23,7 @@ export const AuthProvider = ({ children }) => {
     // Listen for auth changes
     const { data: { subscription } } = supabase.auth.onAuthStateChange(
       async (event, session) => {
-        //console.log('Auth state changed:', event, session);
+
         setSession(session);
         setUser(session?.user || null);
         setLoading(false);
@@ -41,7 +41,7 @@ export const AuthProvider = ({ children }) => {
         setSession(null);
         setUser(null);
       } else {
-        //console.log('Session data:', data);
+
         setSession(data.session);
         setUser(data.session?.user || null);
       }
@@ -72,7 +72,7 @@ export const AuthProvider = ({ children }) => {
         console.error('Sign up error:', error);
         return { error };
       } else {
-        //console.log('Sign up successful:', data);
+
         return { data };
       }
     } catch (error) {
@@ -92,7 +92,7 @@ export const AuthProvider = ({ children }) => {
         console.error('Sign in error:', error);
         return { error };
       } else {
-        //console.log('Sign in successful:', data);
+
         return { data };
       }
     } catch (error) {
@@ -108,7 +108,7 @@ export const AuthProvider = ({ children }) => {
         console.error('Sign out error:', error);
         return { error };
       } else {
-        //console.log('Sign out successful');
+
         return { success: true };
       }
     } catch (error) {
@@ -132,7 +132,7 @@ export const AuthProvider = ({ children }) => {
         console.error('Update profile error:', error);
         return { error };
       } else {
-        //console.log('Profile updated successfully');
+
         // Refresh user data
         await getSession();
         return { success: true };
@@ -155,7 +155,7 @@ export const AuthProvider = ({ children }) => {
         console.error('Update avatar error:', error);
         return { error };
       } else {
-        //console.log('Avatar updated successfully');
+
         // Refresh user data
         await getSession();
         return { success: true };
@@ -176,7 +176,7 @@ export const AuthProvider = ({ children }) => {
         console.error('Update password error:', error);
         return { error };
       } else {
-        //console.log('Password updated successfully');
+
         return { success: true };
       }
     } catch (error) {

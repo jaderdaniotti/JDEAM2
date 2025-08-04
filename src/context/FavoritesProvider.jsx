@@ -13,8 +13,7 @@ export default function FavoritesProvider({ children }) {
             .select("*")
             .eq("user_id", session?.user.id);
         if (error) {
-            console.log(error);
-            console.log("Errore in console");
+            // Handle error silently
         } else {
             setFavorites(favourites);
         }

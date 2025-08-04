@@ -10,7 +10,7 @@ export default function CategoriesPage() {
   const getCategories = async () => {
     const promise = await fetch("https://api.rawg.io/api/genres?key=fe79071ec2d64d9a8864d79740169bfd");
     const json = await promise.json();
-    //console.log(json);
+    
     Setcategories(json);
   }
   useEffect(() => {

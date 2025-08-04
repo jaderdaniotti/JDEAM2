@@ -22,7 +22,7 @@ export default function CategoryPage() {
                 }
                 const categoryData = await categoryResponse.json();
                 setCategory(categoryData);
-                console.log('Category data:', categoryData);
+
 
                 if (categoryData.slug) {
 
@@ -32,7 +32,7 @@ export default function CategoryPage() {
                     }
                     const gamesData = await gamesResponse.json();
                     setGames(gamesData.results || []);
-                    console.log('Games data:', gamesData);
+
                 }
             } catch (error) {
                 console.error('Errore nel caricamento dei dati:', error);

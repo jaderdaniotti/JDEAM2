@@ -17,7 +17,7 @@ export default function AvatarDisplay({ url, size = 40, className = "" }) {
       const url = URL.createObjectURL(data)
       setAvatarUrl(url)
     } catch (error) {
-      //console.log('Error downloading image: ', error.message)
+      
     }
   }
 
