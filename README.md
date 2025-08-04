@@ -763,17 +763,6 @@ module.exports = {
    - Game popularity metrics
    - Performance monitoring
 
-## 📞 Supporto
 
-Per supporto tecnico o domande:
-- Email: support@jdeam.com
-- GitHub Issues: [Repository Issues](https://github.com/username/jdeam-2/issues)
-- Documentation: [Wiki](https://github.com/username/jdeam-2/wiki)
 
-## 📄 Licenza
-
-Questo progetto è rilasciato sotto licenza MIT. Vedi il file `LICENSE` per i dettagli.
-
----
-
-**Sviluppato con ❤️ da [Il Tuo Nome]**
+**Sviluppato con ❤️ da Jader!**
