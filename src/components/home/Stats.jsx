@@ -28,37 +28,33 @@ export default function Stats() {
     ];
 
     return (
-        <section className="py-16 bg-chiaro text-scuro">
-            <div className="container mx-auto px-4">
-                <div className="text-center mb-12">
-                    <h2 className="text-4xl md:text-5xl font-bold mb-4">
+        <section className="py-20 bg-gradient-to-br from-primary-50 to-secondary-50">
+            <div className="max-w-7xl mx-auto px-6">
+                <div className="text-center mb-16">
+                    <h2 className="text-4xl md:text-6xl font-display font-bold text-neutral-900 mb-6">
                         Numeri che Parlano
                     </h2>
-                    <p className="text-lg max-w-2xl mx-auto">
+                    <p className="text-xl text-neutral-600 max-w-3xl mx-auto leading-relaxed">
                         La comunità JDeam2 cresce ogni giorno con nuovi giochi e utenti
                     </p>
                 </div>
                 <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
                     {stats.map((stat, index) => (
-                        <div className="stat" key={index}>
-                            <div className="stat-figure text-secondary">
-                                <div className="text-5xl mb-4 group-hover:scale-110 transition-transform duration-300 text-scuro">
+                        <div className="text-center group" key={index}>
+                            <div className="bg-white rounded-2xl p-8 shadow-soft hover:shadow-large transition-all duration-500 hover:translate-y-[-8px] border border-neutral-200">
+                                <div className="text-6xl mb-6 group-hover:scale-110 transition-transform duration-300 text-primary-600 flex justify-center">
                                     {stat.icon}
                                 </div>
-                            </div>
-                            <div className="stat-title">                            
-                                <div className="text-xl font-medium">
-                                {stat.label}
-                            </div></div>
-                            <div className="stat-value">
-                                <div className="text-4xl md:text-5xl font-bold text-scuro mb-2">
+                                <div className="text-4xl md:text-5xl font-bold text-neutral-900 mb-4 group-hover:scale-110 transition-transform duration-300">
                                     {stat.number}
+                                </div>
+                                <div className="text-lg font-medium text-neutral-600">
+                                    {stat.label}
                                 </div>
                             </div>
                         </div>
                     ))}
                 </div>
-
             </div>
         </section>
     );

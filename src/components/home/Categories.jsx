@@ -20,37 +20,45 @@ export default function Categories() {
 
 
     return (
-        <section className="py-16 bg-scuro text-chiaro">
-            <div className="container mx-auto px-4">
-                <div className="text-center mb-12">
-                    <h2 className="text-4xl md:text-5xl font-bold text-bianco mb-4">
+        <section className="py-20 bg-gradient-to-br from-neutral-100 to-neutral-200">
+            <div className="max-w-7xl mx-auto px-6">
+                <div className="text-center mb-16">
+                    <h2 className="text-4xl md:text-6xl font-display font-bold text-neutral-900 mb-6">
                         Categorie di Giochi
                     </h2>
-                    <p className="text-lg text-chiaro max-w-2xl mx-auto">
+                    <p className="text-xl text-neutral-600 max-w-3xl mx-auto leading-relaxed">
                         Esplora i diversi generi e trova il tuo stile di gioco preferito
                     </p>
                 </div>
 
                 <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
                     {categories.results && categories.results.map((category) => (
-                            <div
-                            className="relative group w-full max-w-xs bg-scuro text-white rounded-3xl overflow-hidden border-1 border-chiaro  transition duration-300 hover:translate-y-[-10px]" key={category.id}>
-                      
-                            <LazyLoadGameImage image={category.image_background} />
-                      
-                            <div className="p-4 flex flex-col gap-2 ">
-                              <span className="text-xs flex items-center gap-2 bg-chiaro text-scuro font-normal self-center px-3 py-1 rounded-full shadow-sm  tracking-wider truncate ">
-                                <CgGames className="w-4 h-4"/> {category.games_count}
-                              </span>
-                      
-                              <h2 className="text-lg text-center font-extrabold text-white truncate drop-shadow-sm">{category.name}</h2>
-                              <span className="text-sm text-chiaro"></span>
-                              <hr className="border-chiaro" />
-                              <Link to={`/categories/${category.id}`} className="self-center relative mt-3 text-sm mb-0 px-4 py-2 rounded-full bg-white text-[#1B1A30] font-semibold transition hover:bg-[#FF6F61] hover:text-white">
-                                Dettagli
-                              </Link>
+                        <div
+                            className="group relative bg-white rounded-2xl overflow-hidden shadow-soft hover:shadow-large transition-all duration-500 hover:translate-y-[-8px] border border-neutral-200" 
+                            key={category.id}
+                        >
+                            <div className="relative overflow-hidden">
+                                <LazyLoadGameImage image={category.image_background} />
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                             </div>
-                          </div>
+                      
+                            <div className="p-6 flex flex-col gap-4">
+                                <span className="inline-flex items-center gap-2 bg-primary-100 text-primary-700 font-medium text-sm px-4 py-2 rounded-full self-center">
+                                    <CgGames className="w-4 h-4"/> {category.games_count} giochi
+                                </span>
+                      
+                                <h2 className="text-lg text-center font-bold text-neutral-900 truncate">{category.name}</h2>
+                                
+                                <div className="border-t border-neutral-200 pt-4">
+                                    <Link 
+                                        to={`/categories/${category.id}`} 
+                                        className="block w-full text-center bg-primary-600 border-2 font-semibold py-3 px-6 rounded-xl hover:bg-primary-700 transition-all duration-300 hover:shadow-lg"
+                                    >
+                                        Esplora
+                                    </Link>
+                                </div>
+                            </div>
+                        </div>
                     ))}
                 </div>
             </div>

@@ -39,9 +39,9 @@ const Navbar = () => {
 
   return (
     <>
-      <div className="bg-scuro">
-        {/* schermi piccoli */}
-        <nav className="navbar bg-scuro text-chiaro border-b border-scuro-2 shadow-md lg:hidden fixed top-0 left-0 w-full z-50">
+      <div className="bg-neutral-900 shadow-soft">
+        {/* Mobile Navigation */}
+        <nav className="navbar bg-neutral-900 text-neutral-100 border-b border-neutral-800 shadow-medium lg:hidden fixed top-0 left-0 w-full z-50">
           <div className="navbar-start">
             {/* Drawer Menu */}
             <div className="drawer">
@@ -49,7 +49,7 @@ const Navbar = () => {
               <div className="drawer-content">
                 <label
                   htmlFor="mobile-drawer"
-                  className="drawer-button p-3 cursor-pointer rounded-md hover:bg-scuro-2 transition"
+                  className="drawer-button p-3 cursor-pointer rounded-xl hover:bg-neutral-800 transition-all duration-200"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -71,21 +71,21 @@ const Navbar = () => {
               {/* Side Drawer Menu */}
               <div className="drawer-side">
                 <label htmlFor="mobile-drawer" className="drawer-overlay"></label>
-                <ul className="menu bg-chiaro-2 text-scuro min-h-full w-72 p-4 space-y-2">
-                  <li className="text-lg font-semibold mb-2">Menu</li>
+                <ul className="menu bg-neutral-100 text-neutral-900 min-h-full w-80 p-6 space-y-3">
+                  <li className="text-xl font-bold mb-4 text-primary-600">Menu</li>
                   {links.map((link) => (
-                    <li key={link.label} className="border-b w-3/4">
+                    <li key={link.label} className="border-b border-neutral-200 w-full">
                       {link.onClick ? (
                         <button
                           onClick={link.onClick}
-                          className="w-full text-left px-3 py-2 rounded-lg hover:bg-gray-200 transition"
+                          className="w-full text-left px-4 py-3 rounded-xl hover:bg-primary-50 hover:text-primary-700 transition-all duration-200 font-medium"
                         >
                           {link.label}
                         </button>
                       ) : (
                         <Link
                           to={link.href}
-                          className="block px-3 py-2 rounded-lg hover:bg-gray-200 transition"
+                          className="block px-4 py-3 rounded-xl hover:bg-primary-50 hover:text-primary-700 transition-all duration-200 font-medium"
                         >
                           {link.label}
                         </Link>
@@ -99,7 +99,7 @@ const Navbar = () => {
 
           {/* Logo */}
           <div className="navbar-center">
-            <Link to="/" className="text-xl font-bold tracking-wide montserrat">
+            <Link to="/" className="text-xl font-bold tracking-wide font-display">
               <Jdeam />
             </Link>
           </div>
@@ -107,35 +107,37 @@ const Navbar = () => {
           {/* Profile Button */}
           <div className="navbar-end">
             <button
-              className="btn btn-ghost btn-circle hover:bg-scuro-2 transition"
+              className="btn btn-ghost btn-circle hover:bg-neutral-800 transition-all duration-200"
               onClick={() => (window.location.href = "/profile")}
             >
               <i className="bi text-xl bi-person-circle"></i>
             </button>
           </div>
         </nav>
-        {/* schermi grandi */}
-        <nav className="navbar  bg-scuro text-chiaro hidden lg:flex">
+        
+        {/* Desktop Navigation */}
+        <nav className="navbar bg-neutral-900 text-neutral-100 hidden lg:flex">
           <div className="flex justify-center items-center w-full">
-            <a className="text-xl montserrat">
+            <Link to="/" className="text-2xl font-bold tracking-wide font-display">
               <Jdeam />
-            </a>
+            </Link>
           </div>
         </nav>
-        <nav className="navbar bg-scuro border-b border-scuro-2 text-chiaro hidden lg:flex">
-          <ul className="flex justify-center gap-10 w-full">
+        
+        <nav className="navbar bg-neutral-900 border-b border-neutral-800 text-neutral-100 hidden lg:flex">
+          <ul className="flex justify-center gap-12 w-full">
             {links.map((link) => {
               return (
                 <li key={link.label}>
                   {link.onClick ? (
                     <button
                       onClick={link.onClick}
-                      className="text-2xl border-b-3 border-transparent hover:border-[#E74B32] hover:text-chiaro hover:font-bold hover:translate-y-[-2px] transition-all duration-300"
+                      className="text-lg font-medium border-b-2 border-transparent hover:border-primary-500 hover:text-primary-300 hover:font-semibold hover:translate-y-[-2px] transition-all duration-300 px-2 py-1"
                     >
                       {link.label}
                     </button>
                   ) : (
-                    <Link to={link.href} className="text-2xl border-b-3 border-transparent hover:border-[#E74B32] hover:text-chiaro hover:font-bold hover:translate-y-[-2px] transition-all duration-300">
+                    <Link to={link.href} className="text-lg font-medium border-b-2 border-transparent hover:border-primary-500 hover:text-primary-300 hover:font-semibold hover:translate-y-[-2px] transition-all duration-300 px-2 py-1">
                       {link.label}
                     </Link>
                   )}
@@ -143,12 +145,13 @@ const Navbar = () => {
               )
             })}
           </ul>
-          <Link to="/profile" className="text-2xl border-b-3 border-transparent hover:border-[#E74B32] hover:text-chiaro hover:font-bold hover:translate-y-[-2px] absolute right-5 transition-all duration-300">
-               <AvatarDisplay url={userData?.avatarUrl} size={40} className="w-10 h-10" />
+          <Link to="/profile" className="absolute right-6 hover:scale-110 transition-all duration-300">
+               <AvatarDisplay url={userData?.avatarUrl} size={40} className="w-10 h-10 " />
           </Link>
         </nav>
-        {/* barra di ricerca */}
-        <nav className="flex justify-center bg-scuro items-center lg:w-3/4 mx-auto">
+        
+        {/* Search Bar */}
+        <nav className="flex justify-center bg-neutral-900 items-center lg:w-3/4 mx-auto py-4">
           <SearchBar />
         </nav>
       </div>

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
+import { Link } from "react-router-dom";
 
 export default function Login() {
   const navigate = useNavigate();
@@ -57,9 +58,9 @@ export default function Login() {
   };
 
   return (
-    <section className="min-h-screen flex items-center justify-center bg-chiaro text-scuro">
-      <div className="bg-chiaro p-8 rounded-2xl shadow-2xl w-full max-w-md">
-        <h2 className="text-3xl font-bold mb-6 text-center">Accedi</h2>
+    <section className="min-h-screen flex items-center justify-center bg-gradient-to-br from-neutral-50 to-neutral-100">
+      <div className="bg-white p-8 rounded-2xl shadow-soft w-full max-w-md border border-neutral-200">
+        <h2 className="text-3xl font-display font-bold mb-6 text-center text-neutral-900">Accedi</h2>
         <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
           <div>
             <input 
@@ -68,11 +69,11 @@ export default function Login() {
               placeholder="Email" 
               value={formState.email}
               onChange={handleChange}
-              className={`px-4 py-3 rounded-lg border w-full focus:outline-none focus:border-chiaro ${
-                formErrors.email ? 'border-red-500' : 'border-scuro-2'
+              className={`px-4 py-3 rounded-xl border w-full focus:outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 transition-all duration-200 ${
+                formErrors.email ? 'border-error-500' : 'border-neutral-300'
               }`} 
             />
-            {formErrors.email && <p className="text-red-500 text-sm mt-1">{formErrors.email}</p>}
+            {formErrors.email && <p className="text-error-500 text-sm mt-1">{formErrors.email}</p>}
           </div>
           
           <div>
@@ -82,15 +83,15 @@ export default function Login() {
               placeholder="Password" 
               value={formState.password}
               onChange={handleChange}
-              className={`px-4 py-3 rounded-lg border w-full focus:outline-none focus:border-chiaro ${
-                formErrors.password ? 'border-red-500' : 'border-scuro-2'
+              className={`px-4 py-3 rounded-xl border w-full focus:outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 transition-all duration-200 ${
+                formErrors.password ? 'border-error-500' : 'border-neutral-300'
               }`} 
             />
-            {formErrors.password && <p className="text-red-500 text-sm mt-1">{formErrors.password}</p>}
+            {formErrors.password && <p className="text-error-500 text-sm mt-1">{formErrors.password}</p>}
           </div>
 
           {formErrors.general && (
-            <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded">
+            <div className="bg-error-50 border border-error-400 text-error-700 px-4 py-3 rounded-xl">
               {formErrors.general}
             </div>
           )}
@@ -98,12 +99,14 @@ export default function Login() {
           <button 
             type="submit" 
             disabled={isLoading}
-            className="bg-chiaro border-scuro border-2 text-scuro w-max mx-auto px-10 py-2 rounded-md mt-2 disabled:opacity-50"
+            className="bg-primary-600 border-2 font-semibold w-max mx-auto px-10 py-3 rounded-xl hover:bg-primary-700 transition-all duration-300 hover:shadow-lg disabled:opacity-50"
           >
-            <p>{isLoading ? "Caricamento..." : "Login"}</p>
+            {isLoading ? "Caricamento..." : "Login"}
           </button>
         </form>
-        <p className="mt-4 text-center text-sm">Non hai un account? <a href="/register" className="text-scuro font-semibold">Registrati</a></p>
+        <p className="mt-4 text-center  text-sm text-neutral-600">Non hai un account? 
+          <Link to="/register" className="text-primary-600 ml-1 font-semibold hover:text-primary-700">Registrati</Link>
+          </p>
       </div>
     </section>
   );

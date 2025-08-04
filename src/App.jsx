@@ -2,6 +2,8 @@
 import './App.css'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { AuthProvider } from './context/AuthContext';
+
+import FavoritesProvider from './context/FavoritesProvider';
 import Home from './pages/home'
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -21,6 +23,7 @@ function App() {
   return (
     <>
       <AuthProvider>
+        <FavoritesProvider>
         <BrowserRouter>
           <Navbar />
           <Routes>
@@ -35,9 +38,10 @@ function App() {
             <Route path="/categories/:categoryId" element={<CategoryPage />} />
             <Route path="/privacy" element={<Privacy />} />
             <Route path="/terms" element={<Terms />} />
-          </Routes>
-          <Footer />
-        </BrowserRouter>
+            </Routes>
+            <Footer />
+            </BrowserRouter>
+          </FavoritesProvider>
       </AuthProvider>
     </>
   )

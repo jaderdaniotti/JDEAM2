@@ -1,12 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Loader from "../components/loader";
+import ToggleFavorite from "../components/ToggleFavorite";
+
+
 
 export default function GameDetail() {
   const { id } = useParams();
   const [game, setGame] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+
 
   const loadGame = async () => {
     setLoading(true);
@@ -89,6 +93,9 @@ export default function GameDetail() {
                   </div>
                 )}
               </div>
+            </div>
+            <div className="absolute top-1 right-1">
+              <ToggleFavorite gameId={game.id} gameData={game} />
             </div>
           </div>
         </div>

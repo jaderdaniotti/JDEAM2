@@ -4,16 +4,50 @@
 @import 'bootstrap-icons';
 @plugin "daisyui";
 
-
 :root {
+  /* Modern design system colors */
+  --primary-50: #f0f9ff;
+  --primary-100: #e0f2fe;
+  --primary-200: #bae6fd;
+  --primary-300: #7dd3fc;
+  --primary-400: #38bdf8;
+  --primary-500: #0ea5e9;
+  --primary-600: #0284c7;
+  --primary-700: #0369a1;
+  --primary-800: #075985;
+  --primary-900: #0c4a6e;
+  --primary-950: #082f49;
+  
+  --secondary-50: #fdf4ff;
+  --secondary-100: #fae8ff;
+  --secondary-200: #f5d0fe;
+  --secondary-300: #f0abfc;
+  --secondary-400: #e879f9;
+  --secondary-500: #d946ef;
+  --secondary-600: #c026d3;
+  --secondary-700: #a21caf;
+  --secondary-800: #86198f;
+  --secondary-900: #701a75;
+  --secondary-950: #4a044e;
+  
+  --neutral-50: #fafafa;
+  --neutral-100: #f5f5f5;
+  --neutral-200: #e5e5e5;
+  --neutral-300: #d4d4d4;
+  --neutral-400: #a3a3a3;
+  --neutral-500: #737373;
+  --neutral-600: #525252;
+  --neutral-700: #404040;
+  --neutral-800: #262626;
+  --neutral-900: #171717;
+  --neutral-950: #0a0a0a;
+  
+  /* Legacy colors for backward compatibility */
   --scuro: #141414;
   --scuro-2: #1B1B1B;
   --chiaro-2: #E1E1E1;
   --chiaro: #F3F3F3;
-  /* Rosso corallo/cartoon per evidenziare o CTA */
   --bianco: #FDFDFD;
-  /* Bianco puro per testi su sfondi scuri */
-
 }
 
 @theme {
@@ -24,23 +58,17 @@
   --bianco: var(--bianco);
 }
 
-
 body {
-  background: var(--chiaro);
-  /* background-image: url(//immagini/sfondo.png);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed; */
-  color: var(--scuro);
+  background: var(--neutral-50);
+  color: var(--neutral-900);
   font-family: "Inter", sans-serif;
   font-optical-sizing: auto;
-  font-weight: 300;
+  font-weight: 400;
   font-style: normal;
   letter-spacing: -0.025em;
   min-height: 100vh;
-  /* -0.025em */
-
   overflow-y: auto;
+  line-height: 1.6;
 }
 
 /* #region colori */
@@ -118,73 +146,28 @@ body {
 
 /* #endregion */
 
-/* #region BUTTONS */
+/* #region MODERN UTILITIES */
 
-
-.buttonUI {
-  all: unset;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  padding: 0.6em 2em;
-  border: var(--chiaro) solid 0.15em;
-  border-radius: 0.25em;
-  color: var(--chiaro);
-  font-size: 1.5em;
-  font-weight: 600;
-  cursor: pointer;
-  overflow: hidden;
-  transition: border 300ms, color 300ms;
-  user-select: none;
-  text-align: center;
+.glass-effect {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-.buttonUI p {
-  z-index: 1;
+.gradient-text {
+  background: linear-gradient(135deg, var(--primary-500), var(--secondary-500));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
-.buttonUI:hover {
-  color: #212121;
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.buttonUI:active {
-  border-color: var(--chiaro);
-}
-
-.buttonUI::after,
-.buttonUI::before {
-  content: "";
-  position: absolute;
-  width: 9em;
-  aspect-ratio: 1;
-  background: var(--chiaro);
-  opacity: 50%;
-  border-radius: 50%;
-  transition: transform 500ms, background 300ms;
-}
-
-.buttonUI::before {
-  left: 0;
-  transform: translateX(-8em);
-}
-
-.buttonUI::after {
-  right: 0;
-  transform: translateX(8em);
-}
-
-.buttonUI:hover:before {
-  transform: translateX(-1em);
-}
-
-.buttonUI:hover:after {
-  transform: translateX(1em);
-}
-
-.buttonUI:active:before,
-.buttonUI:active:after {
-  background: var(--chiaro);
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
 }
 
 /* #endregion */

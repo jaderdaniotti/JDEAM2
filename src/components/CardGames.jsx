@@ -6,21 +6,29 @@ export default function GameCard({ title, image, genre, released, id }) {
 
   return (
     <div
-      className="relative group w-full max-w-xs bg-scuro text-white rounded-3xl overflow-hidden border-1 border-chiaro  transition duration-300 hover:translate-y-[-10px]">
+      className="group relative  rounded-2xl overflow-hidden shadow-soft hover:shadow-large transition-all duration-500 hover:translate-y-[-8px] border-1">
 
-      <LazyLoadGameImage image={image} />
+      <div className="relative overflow-hidden">
+        <LazyLoadGameImage image={image} />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+      </div>
 
-      <div className="p-4 flex flex-col gap-3 ">
-        <span className="text-xs flex items-center gap-2 bg-chiaro text-scuro font-normal self-center px-3 py-1 rounded-full shadow-sm  tracking-wider truncate ">
+      <div className="p-6 flex flex-col gap-4">
+        <span className="inline-flex items-center gap-2 bg-primary-100 text-primary-700 font-medium text-sm px-4 py-2 rounded-full self-center border-2">
           <BiCategoryAlt className="w-4 h-4"/> {genre}
         </span>
 
-        <h2 className="text-lg font-extrabold text-white truncate drop-shadow-sm">{title}</h2>
-        <span className="text-sm text-chiaro">{released}</span>
-        <hr className="border-chiaro" />
-        <Link to={`/game/${id}`} className="self-center relative mt-3 text-sm mb-0 px-4 py-2 rounded-full bg-white text-[#1B1A30] font-semibold transition hover:bg-[#FF6F61] hover:text-white">
-          Dettagli
-        </Link>
+        <h2 className="text-lg font-bold  truncate">{title}</h2>
+        <span className="text-sm ">{released}</span>
+        
+        <div className="border-t border-neutral-200 pt-4 flex justify-center">
+          <Link 
+            to={`/game/${id}`} 
+            className="bg-primary-600 border-2 font-semibold w-max  px-10 py-3 rounded-xl hover:bg-primary-700 transition-all duration-300 hover:shadow-lg disabled:opacity-50 "
+          >
+            Dettagli
+          </Link>
+        </div>
       </div>
     </div>
   );

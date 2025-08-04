@@ -105,9 +105,9 @@ export default function CategoryPage() {
                                 alt={category.name}
                                 className="w-full h-full object-cover"
                             />
-                            <div className="absolute bottom-0 bg-black/90 left-0 p-6 text-chiaro">
+                            <div className="absolute bottom-0 bg-black/70 w-full p-6 text-chiaro">
                                 <h1 className="text-4xl md:text-5xl font-bold mb-2">{category.name}</h1>
-                                <p className="text-md  p-4 rounded-lg opacity-90" dangerouslySetInnerHTML={{ __html: category.description }}></p>
+                               
                             </div>
                         </div>
                     </div>
@@ -141,7 +141,7 @@ export default function CategoryPage() {
                     <h2 className="text-3xl font-bold mb-6">Giochi in {category.name}</h2>
 
                     {games.length > 0 ? (
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
                             {games.map((game) => (
                                 <CardGames key={game.id} id={game.id} title={game.name} image={game.background_image} genre={category.name} released={game.released} className="mx-auto"/>
                             ))}

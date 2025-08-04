@@ -2,11 +2,11 @@ import React from "react";
 
 export default function Terms() {
   return (
-      <section className="min-h-screen flex items-center justify-center bg-scuro-2 text-scuro py-5">
-      <div className="bg-chiaro p-8 rounded-2xl shadow-lg w-full max-w-xl">
-        <h2 className="text-3xl font-bold mb-6 text-center">Termini e Condizioni</h2>
-        <p className="mb-4">Questi sono termini e condizioni di esempio. Qui verranno spiegate le regole di utilizzo della piattaforma.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi. Etiam euismod, urna eu tincidunt consectetur, nisi nisl aliquam enim, nec dictum urna quam at urna.</p>
+    <section className="min-h-screen flex items-center justify-center bg-gradient-to-br from-neutral-50 to-neutral-100 py-5">
+      <div className="bg-white p-8 rounded-2xl shadow-soft w-full max-w-xl border border-neutral-200">
+        <h2 className="text-3xl font-display font-bold mb-6 text-center text-neutral-900">Termini e Condizioni</h2>
+        <p className="mb-4 text-neutral-600 leading-relaxed">Questi sono termini e condizioni di esempio. Qui verranno spiegate le regole di utilizzo della piattaforma.</p>
+        <p className="text-neutral-600 leading-relaxed">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi. Etiam euismod, urna eu tincidunt consectetur, nisi nisl aliquam enim, nec dictum urna quam at urna.</p>
       </div>
     </section>
   );
