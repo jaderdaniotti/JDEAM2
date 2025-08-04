@@ -52,7 +52,7 @@ export default function Avatar({ url, size = 128, onUpload, className = "" }) {
   return (
     <div className={`relative ${className}`}>
       {avatarUrl ? (
-        <div className="relative">
+        <div className="relative flex justify-center items-center">
           <img
             src={avatarUrl}
             alt="Avatar"
